@@ -1,0 +1,32 @@
+<?php if ($this->pageCount): ?>
+<div class="paginationControl">
+<!-- 前のページへのリンク -->
+<?php if (isset($this->previous)): ?>
+  <a href="?page=<?php echo $this->previous; ?>">
+    &lt; Previous
+  </a> |
+<?php else: ?>
+  <span class="disabled">&lt; Previous</span> |
+<?php endif; ?>
+ 
+<!-- ページ番号へのリンク -->
+<?php foreach ($this->pagesInRange as $page): ?>
+  <?php if ($page != $this->current): ?>
+    <a href="?page=<?php echo $page; ?>">
+        <?php echo $page; ?>
+    </a> |
+  <?php else: ?>
+    <?php echo $page; ?> |
+  <?php endif; ?>
+<?php endforeach; ?>
+ 
+<!-- 次のページへのリンク -->
+<?php if (isset($this->next)): ?>
+  <a href="?page=<?php echo $this->next; ?>">
+    Next &gt;
+  </a>
+<?php else: ?>
+  <span class="disabled">Next &gt;</span>
+<?php endif; ?>
+</div>
+<?php endif; ?>
